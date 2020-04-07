@@ -41,11 +41,14 @@ function comList() {
     $liArr = $list.find('.item');
   }
   function init(cfg) {
+    var $oldList = $(cfg.container).find('.notepad-com-list');
+    if($oldList.length !== 0) $oldList.remove();
     $(cfg.container).append($comList);
     $comList.css({ width: cfg.width });
     fill(cfg);
     $($liArr[cfg.select]).addClass('selected');
-    $editor.val(cfg.list[cfg.select]);
+    var i=cfg.select
+    $editor.val(cfg.list[i]);
     $editor.select();
   }
   this.show = function(cfg) {
