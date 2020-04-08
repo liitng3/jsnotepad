@@ -26,15 +26,19 @@
   Editor.prototype.setFont = function(e){
     this.$textArea.css({'font-family': e.fontFamily, 'font-size': e.fontSize + 'pt'});
     if(e.fontStyle === '斜体') {
-      this.$textArea.css({'font-style': 'italic'});
+      this.$textArea.css({'font-style': 'italic','font-weight': 'normal'});
       return;
     }
     if(e.fontStyle === '粗体') {
-      this.$textArea.css({'font-weight': 'bold'});
+      this.$textArea.css({'font-style': 'normal','font-weight': 'bold'});
       return;
     }
     if(e.fontStyle === '粗偏斜体') {
-      this.$textArea.css({'font-weight': 'bold', 'font-style': 'italic'});
+      this.$textArea.css({'font-style': 'italic','font-weight': 'bold'});
+      return;
+    }
+    else{
+      this.$textArea.css({'font-style': 'normal','font-weight': 'normal'});
       return;
     }
   }

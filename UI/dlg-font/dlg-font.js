@@ -136,20 +136,20 @@
   }
   dlgFont.prototype.sample = function(){
     this.$sample.css({ 'font-family': this.family, 'font-size': this.size + 'pt' });
-    if(this.style === '斜体') {
-      this.$sample.css({'font-style': 'italic'});
+    if(this.style == '斜体') {
+      this.$sample.css({'font-style': 'italic','font-weight': 'normal'});
       return;
     }
-    else if(this.style === '粗体') {
-      this.$sample.css({'font-weight': 'bold'});
+    else if(this.style == '粗体') {
+      this.$sample.css({'font-style': 'normal','font-weight': 'bold'});
       return;
     }
-    else if(this.style === '粗偏斜体') {
-      this.$sample.css({'font-weight': 'bold', 'font-style': 'italic'});
+    else if(this.style == '粗偏斜体') {
+      this.$sample.css({'font-style': 'italic','font-weight': 'bold'});
       return;
     }
     else{
-      this.$sample.css({});
+      this.$sample.css({'font-style': 'normal','font-weight': 'normal'});
     }
   }
   dlgFont.prototype.show = function(){
@@ -164,7 +164,8 @@
       isFontStyle: false,
       selectHandler: function(e) {
         that.family = that.fonts[e];
-        that.sample();}
+        that.sample();
+      }
     });
     var list2 = new comList();
     list2.show({
