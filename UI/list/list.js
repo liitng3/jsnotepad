@@ -47,7 +47,7 @@ function comList() {
     $comList.css({ width: cfg.width });
     fill(cfg);
     $($liArr[cfg.select]).addClass('selected');
-    var i=cfg.select
+    var i=cfg.select;
     $editor.val(cfg.list[i]);
     $editor.select();
   }

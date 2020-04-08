@@ -3,11 +3,19 @@
           $menubar,
           $statusBar,
           $editor,
-          $dlgFont,
+          dlgFont,
           $dlgSearch,
           $dlgReplace,
           $dlgGoto: true */
 /* eslint no-console: ["error", { allow: ["log"]  }] */
+/* exported $dlgAbout,
+          $menubar,
+          $statusBar,
+          $editor,
+          dlgFont,
+          $dlgSearch,
+          $dlgReplace,
+          $dlgGoto*/
 np.menuData = [
   { 
     title: '文件(F)',
@@ -137,7 +145,7 @@ np.menuData = [
         title: '替换(R)...',
         shortcut: 'Ctrl+H',
         enabled: true,
-        handler: function() { console.log('未实现!')}
+        handler: function() { console.log('未实现!');}
       },
       {
         title: '转到(G)...',

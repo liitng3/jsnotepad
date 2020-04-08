@@ -1,4 +1,5 @@
-/* exported $menubar*/
+/* exported menubar np e*/
+/* global menubar : true */
 (function(){
   window.Menubar = Menubar;
   function Menubar(menuData){
@@ -18,18 +19,17 @@
       $titles.append($title);
     }
     this.createMenus();
-    this.$titlesList = $titles.find("li");
+    this.$titlesList = $titles.find('li');
     this.$titlesList.click(function(e){
       that.clickevent(e,$(this).index());
-    })
+    });
     this.$titlesList.hover(function(e){
       that.hoverevent($(this).index());
-    })
+    });
     this.$menudom.append($titles);
-  }
+  };
   Menubar.prototype.clickevent= function(e,index){
     var i = index;
-    var that=this
     if(this.pull === -1) {
       this.menus[i].css({ display: 'inline-block' });
       this.pull = i;
@@ -43,7 +43,7 @@
       this.pull = -1;
     }
     e.stopPropagation();
-  }
+  };
   Menubar.prototype.hoverevent= function(index){
     if(this.pull !== -1) {
       var i = index;
@@ -52,7 +52,7 @@
       this.pull = i;
     }
     
-  }
+  };
   Menubar.prototype.createMenus = function(){
     for(var i=0; i<this.menuData.length; i++) {
       var $menus = $('<ul class="menus"></ul>');
@@ -83,8 +83,8 @@
             if($(this).hasClass('disabled')) {
               return;
             }
-            console.log(this.dataset.x)
-            console.log(this.dataset.y)
+            console.log(this.dataset.x);
+            console.log(this.dataset.y);
             var x = this.dataset.x;
             var y = this.dataset.y;
             that.menus[x].css({display: 'none'});
@@ -101,12 +101,12 @@
       this.$menudom.append($menus);
       this.menus.push($menus);
     }
-  }
+  };
   Menubar.prototype.hideMenu = function(){
     if(this.pull === -1) return;
     this.menus[this.pull].css({display: 'none'});
     this.pull = -1;
-  }
+  };
   Menubar.prototype.enabled=function(row, col, isEnabled) {
     var menuItem = this.menus[row].find('.menu-item')[col];
     if(isEnabled) {
@@ -114,9 +114,9 @@
     } else {
       $(menuItem).addClass('disabled');
     }
-  }
+  };
   Menubar.prototype.show = function(){
     this.createMenuTitle();
     $('body').append(this.$menudom);
-  }
+  };
 })();

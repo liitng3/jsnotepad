@@ -1,3 +1,5 @@
+
+/* exported menubar editor*/
 var np = {};
 np.wrap          = true;   
 np.fontFamily     = 'Arial'; 
@@ -9,12 +11,11 @@ np.fontHandler = function(a) {
   np.fontSize = a.size;
 };
 $(function() {
-  console.log(np)
   var $body = $('body');
   var menubar =new Menubar(np.menuData);
   var editor=new Editor(np);
   $body.click(function() {
-    editor.setFont(np)
+    editor.setFont(np);
     menubar.hideMenu();
     editor.focus();
   });
